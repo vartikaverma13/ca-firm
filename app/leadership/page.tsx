@@ -1,30 +1,29 @@
 import { Metadata } from "next";
 import Link from "next/link";
 import { Phone } from "lucide-react";
-import { TeamGrid } from "@/components/Cards";
 import { Section } from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { leader, teamMembers } from "@/lib/data";
+import { leader } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Our Team",
+  title: "Leadership",
   description:
-    "Meet the qualified professionals at Rohit Aggarwal & Company — chartered accountants with deep expertise across audit, taxation, compliance, and advisory.",
+    "Meet CA Rohit Aggarwal, FCA — Managing Partner of Rohit Aggarwal & Company, a Fellow Chartered Accountant with 10+ years of experience.",
 };
 
-export default function TeamPage() {
+export default function LeadershipPage() {
   return (
     <>
       <section className="page-hero">
-        <span className="eyebrow">Our People</span>
-        <h1>Meet Our Team</h1>
+        <span className="eyebrow">Leadership</span>
+        <h1>Visionary Leadership</h1>
         <p>
-          A team of qualified professionals committed to delivering excellence across audit,
-          taxation, compliance, and advisory.
+          Guided by a commitment to excellence, integrity, and client-first advisory that sets the
+          standard for every engagement.
         </p>
       </section>
 
-      <Section eyebrow="Leadership" title="Managing Partner">
+      <Section eyebrow="Managing Partner" title={leader.name}>
         <ScrollReveal>
           <article className="profile-card">
             <div className="profile-mark">RA</div>
@@ -48,24 +47,30 @@ export default function TeamPage() {
                   {leader.expertise.join(", ")}
                 </span>
               </div>
+              <ul className="list compact-list">
+                {leader.highlights.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
             </div>
           </article>
         </ScrollReveal>
       </Section>
 
-      <Section eyebrow="Professional Team" title="Senior Professionals" centered>
-        <ScrollReveal>
-          <TeamGrid members={teamMembers} />
-        </ScrollReveal>
-      </Section>
+      <section className="partner-quote">
+        <blockquote>{leader.message}</blockquote>
+        <cite>
+          {leader.name}, {leader.suffix} — {leader.role}
+        </cite>
+      </section>
 
       <section className="cta-banner">
         <div>
-          <span className="eyebrow">Join Us</span>
-          <h2>Interested in building your career with a leading CA firm?</h2>
+          <span className="eyebrow">Connect</span>
+          <h2>Schedule a consultation with our Managing Partner</h2>
         </div>
         <Link className="button" href="/contact">
-          <Phone size={17} aria-hidden="true" /> Get In Touch
+          <Phone size={17} aria-hidden="true" /> Book Consultation
         </Link>
       </section>
     </>

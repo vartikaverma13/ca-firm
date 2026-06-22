@@ -1,14 +1,16 @@
-import { Award, BriefcaseBusiness, Target } from "lucide-react";
-import { FeatureGrid } from "@/components/Cards";
+import { Metadata } from "next";
+import Link from "next/link";
+import { ArrowRight, Target, BriefcaseBusiness, Award, Phone } from "lucide-react";
+import { FeatureGrid, ValueGrid } from "@/components/Cards";
 import { Section } from "@/components/Section";
-import { firm, leader, values } from "@/lib/data";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { firm, leader, coreValues, whyChooseUs, credibility, vision, mission } from "@/lib/data";
 
-const whyChoose = [
-  { title: "Expert Guidance", text: "Advice is led by CA Rohit Aggarwal with deep exposure to tax, GST, audit and business finance matters." },
-  { title: "Transparent Process", text: "Every engagement follows clear scope, documentation, timelines and practical communication." },
-  { title: "Timely Compliance", text: "Calendar-led execution helps clients avoid penalties, last-minute filings and missed obligations." },
-  { title: "Personalized Solutions", text: "Recommendations are shaped around your income profile, business model, industry and growth stage." }
-];
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about Rohit Aggarwal & Company — a premium Chartered Accountancy practice built on precision, integrity, and professional excellence.",
+};
 
 export default function AboutPage() {
   return (
@@ -16,58 +18,97 @@ export default function AboutPage() {
       <section className="page-hero">
         <span className="eyebrow">About the Firm</span>
         <h1>{firm.name}</h1>
-        <p>A premium Chartered Accountancy practice built for clients who need dependable compliance, careful tax thinking and practical financial clarity.</p>
+        <p>{firm.overview}</p>
       </section>
 
-      <Section eyebrow="Our Story" title="Professional Journey">
-        <div className="split editorial-split">
-          <p>Founded in {firm.established}, the firm has grown around a simple professional promise: combine technical accuracy with clear, actionable advice. CA Rohit Aggarwal works closely with clients through tax filings, GST compliance, audits, accounting systems and financial advisory decisions.</p>
-          <p>The practice serves individuals, startups, SMEs and corporate clients with a focus on disciplined documentation, proactive communication and long-term financial confidence.</p>
-        </div>
-      </Section>
-
-      <Section eyebrow="Foundation" title="Vision, Mission and Values">
-        <div className="grid">
-          <article className="card">
-            <div className="icon-badge"><Target size={22} aria-hidden="true" /></div>
-            <h3>Vision</h3>
-            <p>To become a trusted financial advisory partner for growth-focused clients who value governance, clarity and compliance.</p>
-          </article>
-          <article className="card">
-            <div className="icon-badge"><BriefcaseBusiness size={22} aria-hidden="true" /></div>
-            <h3>Mission</h3>
-            <p>To simplify taxation, compliance and financial decisions through precise, ethical and commercially practical advice.</p>
-          </article>
-          <article className="card">
-            <div className="icon-badge"><Award size={22} aria-hidden="true" /></div>
-            <h3>Values</h3>
-            <p>{values.join(" • ")}</p>
-          </article>
-        </div>
-      </Section>
-
-      <Section eyebrow="Why Choose Us" title="Professional advice, delivered with precision">
-        <FeatureGrid items={whyChoose} />
-      </Section>
-
-      <Section eyebrow="Leadership" title="Leadership Profile">
-        <article className="profile-card">
-          <div className="profile-mark">RA</div>
-          <div>
-            <span className="eyebrow">Principal Advisor</span>
-            <h2>{leader.name}</h2>
-            <p>{leader.bio}</p>
-            <div className="profile-details">
-              <span><strong>Qualification</strong>{leader.qualification}</span>
-              <span><strong>Experience</strong>{leader.experience}</span>
-              <span><strong>Expertise</strong>{leader.expertise}</span>
-            </div>
-            <ul className="list compact-list">
-              {leader.achievements.map((item) => <li key={item}>{item}</li>)}
-            </ul>
+      <Section eyebrow="Our Journey" title="Built on Precision, Driven by Trust">
+        <ScrollReveal>
+          <div className="split editorial-split">
+            <p>
+              Established in {firm.established}, Rohit Aggarwal & Company has grown from a focused
+              chartered accountancy practice into a full-spectrum financial advisory firm. Over the
+              years, we have built deep expertise across audit, taxation, corporate compliance, and
+              strategic financial advisory — serving corporates, startups, and high-net-worth
+              individuals with equal dedication.
+            </p>
+            <p>
+              Our firm is built on the pillars of {firm.pillars.join(", ")}. Every
+              engagement reflects our commitment to delivering measurable value, maintaining the
+              highest ethical standards, and building relationships that stand the test of time.
+            </p>
           </div>
-        </article>
+        </ScrollReveal>
       </Section>
+
+      <Section eyebrow="Foundation" title="Vision, Mission & Core Values">
+        <ScrollReveal>
+          <div className="grid">
+            <article className="card">
+              <div className="icon-badge">
+                <Target size={22} aria-hidden="true" />
+              </div>
+              <h3>Vision</h3>
+              <p>{vision}</p>
+            </article>
+            <article className="card">
+              <div className="icon-badge">
+                <BriefcaseBusiness size={22} aria-hidden="true" />
+              </div>
+              <h3>Mission</h3>
+              <p>{mission}</p>
+            </article>
+            <article className="card">
+              <div className="icon-badge">
+                <Award size={22} aria-hidden="true" />
+              </div>
+              <h3>Core Values</h3>
+              <p>{coreValues.map((v) => v.title).join(" • ")}</p>
+            </article>
+          </div>
+        </ScrollReveal>
+        <ScrollReveal delay={200}>
+          <div style={{ marginTop: 32 }}>
+            <ValueGrid values={coreValues} />
+          </div>
+        </ScrollReveal>
+      </Section>
+
+      <Section eyebrow="Our Differentiators" title="Why Leading Businesses Choose Us">
+        <ScrollReveal>
+          <FeatureGrid items={whyChooseUs} variant="why-choose" />
+        </ScrollReveal>
+      </Section>
+
+      <Section eyebrow="By The Numbers" title="Our Track Record" centered>
+        <ScrollReveal>
+          <div className="grid" style={{ maxWidth: 900, margin: "0 auto" }}>
+            {credibility.map((stat) => (
+              <article className="card" key={stat.label} style={{ textAlign: "center" }}>
+                <strong className="metric">{stat.value}</strong>
+                <h3>{stat.label}</h3>
+                <p>{stat.text}</p>
+              </article>
+            ))}
+          </div>
+        </ScrollReveal>
+      </Section>
+
+      <section className="partner-quote">
+        <blockquote>{leader.message}</blockquote>
+        <cite>
+          {leader.name}, {leader.suffix} — {leader.role}
+        </cite>
+      </section>
+
+      <section className="cta-banner">
+        <div>
+          <span className="eyebrow">Let&apos;s Work Together</span>
+          <h2>Ready to experience advisory that makes a difference?</h2>
+        </div>
+        <Link className="button" href="/contact">
+          <Phone size={17} aria-hidden="true" /> Book Consultation
+        </Link>
+      </section>
     </>
   );
 }

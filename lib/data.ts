@@ -73,8 +73,11 @@ export interface Leader {
   name: string;
   suffix: string;
   role: string;
+  qualification: string;
   experience: string;
   bio: string;
+  expertise: string[];
+  achievements: string[];
   highlights: string[];
   message: string;
 }
@@ -710,8 +713,22 @@ export const leader: Leader = {
   name: "CA Rohit Aggarwal",
   suffix: "FCA",
   role: "Managing Partner",
+  qualification: "Fellow Chartered Accountant (FCA)",
   experience: "10+ years",
   bio: "A Fellow Chartered Accountant with 10+ years of experience across audit, taxation, and corporate advisory. CA Rohit Aggarwal leads the firm with a commitment to delivering Big 4-quality advisory with the personal attention of a trusted partner.",
+  expertise: [
+    "Audit",
+    "Taxation",
+    "Corporate Advisory",
+    "GST Compliance",
+    "Financial Reporting",
+  ],
+  achievements: [
+    "Fellow Member of ICAI",
+    "10+ Years of Experience",
+    "Expertise in Audit, Taxation & Corporate Advisory",
+    "Trusted by Listed Companies, PE-backed Businesses, and High-Growth Startups",
+  ],
   highlights: [
     "Fellow Member of ICAI",
     "10+ Years of Experience",

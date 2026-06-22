@@ -1,81 +1,112 @@
+import { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowRight } from "lucide-react";
-import { ContactForm } from "@/components/ContactForm";
+import { Phone, CheckCircle2, ArrowRight } from "lucide-react";
+import { ProcessTimeline } from "@/components/Cards";
 import { FAQ } from "@/components/FAQ";
 import { Section } from "@/components/Section";
-import { ServiceSelector } from "@/components/ServiceSelector";
-import { faqs, services } from "@/lib/data";
+import { ScrollReveal } from "@/components/ScrollReveal";
+import { services } from "@/lib/data";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
-  const service = services.find((item) => item.slug === params.slug);
-  return { title: service ? `${service.title} | CA Rohit Aggarwal` : "Service | CA Rohit Aggarwal" };
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const service = services.find((s) => s.slug === params.slug);
+  if (!service) return { title: "Service Not Found" };
+  return {
+    title: service.title,
+    description: service.intro,
+  };
 }
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
-  const service = services.find((item) => item.slug === params.slug);
+  const service = services.find((s) => s.slug === params.slug);
+  if (!service) notFound();
 
-  if (!service) {
-    notFound();
-  }
+  const relatedServices = services.filter((s) => s.slug !== service.slug).slice(0, 3);
 
   return (
     <>
       <section className="page-hero">
-        <span className="eyebrow">Service Detail</span>
+        <span className="eyebrow">Services</span>
         <h1>{service.title}</h1>
         <p>{service.intro}</p>
-        <div className="hero-actions">
-          <Link className="button" href="/contact">Book Consultation <ArrowRight size={18} aria-hidden="true" /></Link>
-          <Link className="button secondary" href="/services">All Services</Link>
-        </div>
       </section>
 
-      <Section eyebrow="Navigate" title="Service Navigation">
-        <ServiceSelector services={services} />
+      <Section eyebrow="What We Provide" title="Service Scope">
+        <ScrollReveal>
+          <ul className="list">
+            {service.provide.map((item) => (
+              <li key={item}>
+                <CheckCircle2
+                  size={16}
+                  style={{ display: "inline", marginRight: 10, color: "var(--gold)", verticalAlign: "middle" }}
+                  aria-hidden="true"
+                />
+                {item}
+              </li>
+            ))}
+          </ul>
+        </ScrollReveal>
       </Section>
 
-      <Section eyebrow="Overview" title="Service Overview">
-        <div className="split editorial-split">
-          <p>{service.intro}</p>
-          <p>Every engagement is structured around accurate documentation, clear timelines, risk review and practical advisory so clients understand what is being filed, why it matters and how it affects decisions.</p>
+      <Section eyebrow="Our Approach" title="Engagement Process">
+        <ScrollReveal>
+          <ProcessTimeline steps={service.process} />
+        </ScrollReveal>
+      </Section>
+
+      <Section eyebrow="Impact" title="Key Benefits" centered>
+        <ScrollReveal>
+          <div className="grid">
+            {service.benefits.map((benefit) => (
+              <article className="card" key={benefit} style={{ textAlign: "center" }}>
+                <div className="icon-badge" style={{ margin: "0 auto" }}>
+                  <CheckCircle2 size={20} aria-hidden="true" />
+                </div>
+                <h3>{benefit}</h3>
+              </article>
+            ))}
+          </div>
+        </ScrollReveal>
+      </Section>
+
+      {service.faqs && service.faqs.length > 0 && (
+        <Section eyebrow="FAQ" title={`${service.title} — Frequently Asked Questions`}>
+          <ScrollReveal>
+            <FAQ items={service.faqs} />
+          </ScrollReveal>
+        </Section>
+      )}
+
+      {/* Related Services */}
+      <Section eyebrow="Explore More" title="Related Services" centered>
+        <ScrollReveal>
+          <div className="grid">
+            {relatedServices.map((rs) => (
+              <article className="card" key={rs.slug}>
+                <h3>{rs.title}</h3>
+                <p>{rs.intro}</p>
+                <Link className="text-link" href={`/services/${rs.slug}`}>
+                  Learn More <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              </article>
+            ))}
+          </div>
+        </ScrollReveal>
+      </Section>
+
+      <section className="cta-banner">
+        <div>
+          <span className="eyebrow">Get Expert Guidance</span>
+          <h2>Ready to discuss your {service.title.toLowerCase()} needs?</h2>
         </div>
-      </Section>
-
-      <Section eyebrow="Deliverables" title="What You Receive">
-        <ul className="list">
-          {service.provide.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </Section>
-
-      <Section eyebrow="Workflow" title="Process">
-        <div className="grid process-grid">
-          {service.process.map((item, index) => (
-            <article className="card process-card" key={item}>
-              <span className="step-number">0{index + 1}</span>
-              <h3>{item}</h3>
-            </article>
-          ))}
-        </div>
-      </Section>
-
-      <Section eyebrow="Advantages" title="Benefits">
-        <ul className="list">
-          {service.benefits.map((item) => <li key={item}>{item}</li>)}
-        </ul>
-      </Section>
-
-      <Section eyebrow="FAQ" title="Frequently Asked Questions">
-        <FAQ items={faqs} />
-      </Section>
-
-      <Section eyebrow="Appointment" title={`${service.title} Consultation`}>
-        <ContactForm title={`${service.title} Consultation`} />
-      </Section>
+        <Link className="button" href="/contact">
+          <Phone size={17} aria-hidden="true" /> Book Consultation
+        </Link>
+      </section>
     </>
   );
 }
