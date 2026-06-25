@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import { X, ChevronDown, Phone, CheckCircle2 } from "lucide-react";
 import { useUiStore } from "@/store/uiStore";
 
@@ -60,11 +60,11 @@ export function BookConsultationModal() {
     }, 2000);
   };
 
-  const closeModal = () => {
+  const closeModal = useCallback(() => {
     setIsSuccess(false);
     setFormData({ fullName: "", email: "", phone: "", service: "" });
     setConsultationOpen(false);
-  };
+  }, [setConsultationOpen]);
 
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {

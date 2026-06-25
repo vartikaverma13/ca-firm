@@ -85,6 +85,7 @@ export default function ContactPage() {
             <div className="absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-[#B8945F]/10 blur-[60px]" />
             
             <div className="relative z-10 flex h-20 w-20 shrink-0 items-center justify-center rounded-2xl bg-white shadow-xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google" width="40" height="40" />
             </div>
             
