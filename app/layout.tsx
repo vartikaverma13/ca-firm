@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { BookConsultationModal } from "@/components/BookConsultationModal";
 
 export const metadata: Metadata = {
   title: {
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
     template: "%s | Rohit Aggarwal & Company",
   },
   description:
-    "Rohit Aggarwal & Co. is a premium Chartered Accountancy practice delivering end-to-end financial, tax, compliance, and advisory services to corporates, startups, and high-net-worth individuals.",
+    "Rohit Aggarwal & Company is a premium Chartered Accountancy practice delivering end-to-end financial, tax, compliance, and advisory services to corporates, startups, and high-net-worth individuals.",
   keywords:
     "chartered accountant, CA firm, Rohit Aggarwal, tax consultant, GST advisory, audit, financial advisory, virtual CFO, startup advisory, Ghaziabad, Delhi NCR",
   openGraph: {
@@ -33,6 +34,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Header />
         <main>{children}</main>
         <Footer />
+        <BookConsultationModal />
       </body>
     </html>
   );

@@ -103,7 +103,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
           <span className="eyebrow">Get Expert Guidance</span>
           <h2>Ready to discuss your {service.title.toLowerCase()} needs?</h2>
         </div>
-        <Link className="button" href="/contact">
+        <Link className="button" href="/contact" data-consultation-trigger>
           <Phone size={17} aria-hidden="true" /> Book Consultation
         </Link>
       </section>

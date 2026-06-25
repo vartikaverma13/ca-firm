@@ -15,16 +15,9 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-      <section className="page-hero">
-        <span className="eyebrow">Industry Expertise</span>
-        <h1>Industries We Serve</h1>
-        <p>
-          Deep domain expertise across key sectors, delivering industry-specific tax structuring,
-          compliance frameworks, and advisory solutions.
-        </p>
-      </section>
+      <div style={{ paddingTop: '100px' }}></div>
 
-      <Section eyebrow="Sectors" title="Sector-Specific Advisory" centered>
+      <Section eyebrow="Industry Expertise" title="Industries We Serve" centered>
         <ScrollReveal>
           <IndustryGrid industries={industries} />
         </ScrollReveal>
@@ -35,7 +28,7 @@ export default function IndustriesPage() {
           <span className="eyebrow">Industry Advisory</span>
           <h2>Need sector-specific financial guidance?</h2>
         </div>
-        <Link className="button" href="/contact">
+        <Link className="button" href="/contact" data-consultation-trigger>
           <Phone size={17} aria-hidden="true" /> Book Consultation
         </Link>
       </section>

@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { Phone, Menu, X, ChevronDown } from "lucide-react";
+import { useUiStore } from "@/store/uiStore";
 
 const services = [
   { label: "Audit & Assurance", href: "/services/audit-assurance" },
@@ -31,6 +32,7 @@ export function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const setConsultationOpen = useUiStore((state) => state.setConsultationOpen);
 
   useEffect(() => {
     function handleScroll() {
@@ -56,9 +58,7 @@ export function Header() {
       <header className={`site-header ${scrolled ? "scrolled" : ""}`}>
         <Link className="brand" href="/" aria-label="Rohit Aggarwal & Company home">
           <span className="brand-mark">RA</span>
-          <span className="brand-text">
-            Rohit Aggarwal & Co.
-          </span>
+          <span className="brand-text">Rohit Aggarwal &amp; Company</span>
         </Link>
 
         <nav className="nav-links" aria-label="Main navigation">
@@ -72,7 +72,6 @@ export function Header() {
               >
                 <Link href={item.href} className="nav-dropdown-trigger">
                   {item.label}
-                  <ChevronDown size={14} aria-hidden="true" />
                 </Link>
                 {servicesOpen && (
                   <div className="nav-dropdown">
@@ -92,10 +91,14 @@ export function Header() {
           )}
         </nav>
 
-        <Link className="header-cta" href="/contact">
+        <button 
+          className="header-cta" 
+          onClick={() => setConsultationOpen(true)}
+          style={{ border: "none", cursor: "pointer" }}
+        >
           <Phone size={15} aria-hidden="true" />
           Book Consultation
-        </Link>
+        </button>
 
         <button
           className="menu-toggle"
@@ -128,14 +131,17 @@ export function Header() {
               </Link>
             ))}
           </div>
-          <Link
-            href="/contact"
+          <button
+            onClick={() => {
+              setMobileOpen(false);
+              setConsultationOpen(true);
+            }}
             className="button mobile-nav-cta"
-            onClick={() => setMobileOpen(false)}
+            style={{ border: "none", cursor: "pointer", width: "100%", textAlign: "center", display: "flex", justifyContent: "center" }}
           >
             <Phone size={16} aria-hidden="true" />
             Book Consultation
-          </Link>
+          </button>
         </nav>
       </div>
     </>

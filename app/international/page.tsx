@@ -57,7 +57,7 @@ export default function InternationalPage() {
           <span className="eyebrow">Global Advisory</span>
           <h2>Need cross-border tax or compliance support?</h2>
         </div>
-        <Link className="button" href="/contact">
+        <Link className="button" href="/contact" data-consultation-trigger>
           <Phone size={17} aria-hidden="true" /> Book International Consultation
         </Link>
       </section>

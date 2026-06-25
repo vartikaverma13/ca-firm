@@ -27,12 +27,16 @@ export default function Home() {
             <h1>Delivering Trust Through Expertise</h1>
             <p className="hero-subtitle">{firm.overview}</p>
             <div className="hero-actions">
-              <Link className="button" href="/contact">
+              <Link className="button" href="/contact" data-consultation-trigger>
                 <CalendarCheck size={18} aria-hidden="true" /> Book Consultation
               </Link>
               <Link className="button outline" href="/services">
                 Explore Services <ArrowRight size={18} aria-hidden="true" />
               </Link>
+            </div>
+            <div className="hero-phone" style={{ marginTop: '1.5rem', fontSize: '2rem', fontWeight: 700, color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
+              <Phone size={32} aria-hidden="true" />
+              <a href="tel:+919953864565" style={{ color: 'inherit', textDecoration: 'none', letterSpacing: '0.05em' }}>+91 99538 64565</a>
             </div>
             <div className="hero-trustline">
               <span>
@@ -103,7 +107,9 @@ export default function Home() {
       {/* ── INTERNATIONAL PRESENCE ── */}
       <Section eyebrow="Global Reach" title="International Advisory Expertise" centered>
         <ScrollReveal>
-          <p>{internationalExpertise}</p>
+          <p style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 2rem auto", fontSize: "1.1rem", lineHeight: 1.6, color: "var(--text-dark-secondary)" }}>
+            {internationalExpertise}
+          </p>
           <CountryBadges countries={internationalCountries} />
           <div style={{ textAlign: "center", marginTop: "2rem" }}>
             <Link className="text-link" href="/international">
@@ -140,7 +146,7 @@ export default function Home() {
             <span className="eyebrow">Ready to Get Started?</span>
             <h2>Schedule a confidential consultation with our team</h2>
           </div>
-          <Link className="button" href="/contact">
+          <Link className="button" href="/contact" data-consultation-trigger>
             <Phone size={18} aria-hidden="true" /> Book Consultation
           </Link>
         </section>

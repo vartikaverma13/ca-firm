@@ -182,8 +182,7 @@ export function TeamGrid({
               <span>{initials}</span>
             </div>
             <div className="team-info">
-              <h3>{member.name}</h3>
-              <span className="team-suffix">{member.suffix}</span>
+              <h3>{member.name}, {member.suffix}</h3>
               <span className="team-role-badge">{member.role}</span>
             </div>
             <div className="tag-list">

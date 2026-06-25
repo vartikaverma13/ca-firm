@@ -101,11 +101,11 @@ export interface FAQ {
 
 export const firm: Firm = {
   name: "Rohit Aggarwal & Company",
-  shortName: "RA & Co.",
+  shortName: "RA & Company.",
   tagline: "Delivering Trust Through Expertise",
   established: "2014",
   overview:
-    "Rohit Aggarwal & Co. is a premium Chartered Accountancy practice delivering end-to-end financial, tax, compliance, and advisory services to corporates, startups, and high-net-worth individuals.",
+    "Rohit Aggarwal & Company is a premium Chartered Accountancy practice delivering end-to-end financial, tax, compliance, and advisory services to corporates, startups, and high-net-worth individuals.",
   pillars: [
     "Precision",
     "Integrity",
@@ -113,16 +113,16 @@ export const firm: Firm = {
     "Long-term Client Relationships",
   ],
   address:
-    "216/100, Shalimar Garden Ext-1, Ghaziabad, Uttar Pradesh 201005, India",
+    "216, Shalimar Garden Ext-1, Ghaziabad, Uttar Pradesh 201005, India",
   phone: "+91 99538 64565",
   email: "audit@carohitaggarwal.org.in",
   hours: "Monday to Saturday, 10:00 AM – 6:30 PM",
   social: [
-    { platform: "LinkedIn", url: "#" },
+    { platform: "LinkedIn", url: "https://www.linkedin.com/company/rohit-aggarwal-company" },
     { platform: "X", url: "#" },
   ],
   managingPartnerMessage:
-    "At Rohit Aggarwal & Co., every client receives the depth of expertise, the rigor of a global firm, and the commitment of a trusted partner. We do not just advise—we stand beside our clients through every critical financial decision.",
+    "At Rohit Aggarwal & Company, every client receives the depth of expertise, the rigor of a global firm, and the commitment of a trusted partner. We do not just advise—we stand beside our clients through every critical financial decision.",
 };
 
 // ---------------------------------------------------------------------------
@@ -736,7 +736,7 @@ export const leader: Leader = {
     "Trusted by Listed Companies, PE-backed Businesses, and High-Growth Startups",
   ],
   message:
-    "At Rohit Aggarwal & Co., every client receives the depth of expertise, the rigor of a global firm, and the commitment of a trusted partner. We do not just advise—we stand beside our clients through every critical financial decision.",
+    "At Rohit Aggarwal & Company., every client receives the depth of expertise, the rigor of a global firm, and the commitment of a trusted partner. We do not just advise—we stand beside our clients through every critical financial decision.",
 };
 
 // ---------------------------------------------------------------------------
@@ -746,7 +746,7 @@ export const leader: Leader = {
 export const teamMembers: TeamMember[] = [
   {
     name: "CA Himanshu Sharma",
-    suffix: "FCA",
+    suffix: "FCA,",
     role: "Partner",
     expertise: [
       "Direct Taxation",
@@ -755,7 +755,7 @@ export const teamMembers: TeamMember[] = [
       "Corporate Law",
       "FEMA & Foreign Exchange Regulations",
     ],
-    industries: ["Manufacturing", "Real Estate", "IT", "Healthcare"],
+    industries: [],
   },
   {
     name: "CA Vivek Somani",

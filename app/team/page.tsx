@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Phone } from "lucide-react";
 import { TeamGrid } from "@/components/Cards";
@@ -27,14 +28,32 @@ export default function TeamPage() {
       <Section eyebrow="Leadership" title="Managing Partner">
         <ScrollReveal>
           <article className="profile-card">
-            <div className="profile-mark">RA</div>
-            <div>
+            {/* ── Left: Photo column ── */}
+            <div className="profile-left">
+              <div className="profile-photo-wrap">
+                <Image
+                  src="/rohit.jpeg"
+                  alt="CA Rohit Aggarwal"
+                  fill
+                  className="profile-photo"
+                  priority
+                  sizes="(max-width: 640px) 180px, (max-width: 768px) 240px, 300px"
+                />
+              </div>
+              <div className="profile-photo-caption">
+                <strong>{leader.name}</strong>
+                <span>{leader.suffix} · {leader.role}</span>
+              </div>
+            </div>
+
+            {/* ── Right: Content column ── */}
+            <div className="profile-content">
               <span className="eyebrow">{leader.role}</span>
               <h2 style={{ marginTop: 8 }}>
                 {leader.name}, {leader.suffix}
               </h2>
-              <p style={{ marginTop: 12 }}>{leader.bio}</p>
-              <div className="profile-details">
+              <p style={{ marginTop: 16, lineHeight: 1.8 }}>{leader.bio}</p>
+              <div className="profile-details" style={{ textAlign: 'left' }}>
                 <span>
                   <strong>Qualification</strong>
                   {leader.qualification}
