@@ -773,6 +773,19 @@ export const teamMembers: TeamMember[] = [
   {
     name: "CA Bhawna",
     suffix: "FCA",
+    role: "Tax Manager",
+    expertise: [
+      "Audit & Assurance",
+      "ROC Compliance",
+      "Corporate Governance",
+      "Internal Controls",
+      "Regulatory Advisory",
+    ],
+    industries: [],
+  },
+  {
+    name: "Upasana Verma",
+    suffix: "",
     role: "Manager",
     expertise: [
       "Audit & Assurance",

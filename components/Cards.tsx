@@ -178,9 +178,9 @@ export function TeamGrid({
 
         return (
           <article className="card team-card" key={member.name}>
-            <div className="team-avatar">
+            {/* <div className="team-avatar">
               <span>{initials}</span>
-            </div>
+            </div> */}
             <div className="team-info">
               <h3>{member.name}, {member.suffix}</h3>
               <span className="team-role-badge">{member.role}</span>
