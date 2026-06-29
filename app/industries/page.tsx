@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, CalendarCheck } from "lucide-react";
 import { IndustryGrid } from "@/components/Cards";
 import { Section } from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function IndustriesPage() {
   return (
     <>
-      <div style={{ paddingTop: '100px' }}></div>
+      <div style={{ paddingTop: '10px' }}></div>
 
       <Section eyebrow="Industry Expertise" title="Industries We Serve" centered>
         <ScrollReveal>
@@ -28,9 +28,9 @@ export default function IndustriesPage() {
           <span className="eyebrow">Industry Advisory</span>
           <h2>Need sector-specific financial guidance?</h2>
         </div>
-        <Link className="button" href="/contact" data-consultation-trigger>
-          <Phone size={17} aria-hidden="true" /> Book Consultation
-        </Link>
+        <button className="button" data-consultation-trigger>
+          <CalendarCheck size={18} aria-hidden="true" /> Book a Consultation
+        </button>
       </section>
     </>
   );

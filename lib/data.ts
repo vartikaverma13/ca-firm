@@ -67,6 +67,7 @@ export interface Industry {
   name: string;
   description: string;
   icon: string;
+  image?: string;
 }
 
 export interface Leader {
@@ -674,34 +675,40 @@ export const industries: Industry[] = [
     description:
       "Cost audits, production-linked compliance, operational advisory.",
     icon: "Factory",
+    image: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Hospitality",
     description: "Hotels, restaurants, and hospitality chains.",
     icon: "Hotel",
+    image: "https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Real Estate",
     description: "RERA compliance, project finance, and GST advisory.",
     icon: "Building",
+    image: "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Retail & FMCG",
     description:
       "Inventory audits, profitability analysis, and tax optimization.",
     icon: "ShoppingCart",
+    image: "https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Healthcare",
     description:
       "Hospital compliance, medical device taxation, and advisory services.",
     icon: "Heart",
+    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=800&auto=format&fit=crop",
   },
   {
     name: "Financial Services",
     description:
       "NBFC compliance, RBI reporting, and wealth structuring.",
     icon: "Landmark",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
   },
 ];
 
@@ -772,8 +779,8 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "CA Bhawna",
-    suffix: "FCA",
-    role: "Manager",
+    suffix: "",
+    role: "",
     expertise: [
       "Audit & Assurance",
       "ROC Compliance",
@@ -786,7 +793,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Upasana Verma",
     suffix: "",
-    role: "Manager",
+    role: "Senior Accountant",
     expertise: [
       "Audit & Assurance",
       "ROC Compliance",

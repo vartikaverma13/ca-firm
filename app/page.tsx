@@ -24,19 +24,19 @@ export default function Home() {
         <div className="hero-content">
           <div className="hero-copy reveal-up">
             <span className="eyebrow">Chartered Accountants &amp; Financial Advisors</span>
-            <h1>Delivering Trust Through Expertise</h1>
+            <h1>Delivering Trust Through Expertise since 2015</h1>
             <p className="hero-subtitle">{firm.overview}</p>
             <div className="hero-actions">
-              <Link className="button" href="/contact" data-consultation-trigger>
+              <button className="button" data-consultation-trigger>
                 <CalendarCheck size={18} aria-hidden="true" /> Book Consultation
-              </Link>
+              </button>
               <Link className="button outline" href="/services">
                 Explore Services <ArrowRight size={18} aria-hidden="true" />
               </Link>
             </div>
-            <div className="hero-phone" style={{ marginTop: '1.5rem', fontSize: '2rem', fontWeight: 700, color: 'var(--accent-gold)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem' }}>
-              <Phone size={32} aria-hidden="true" />
-              <a href="tel:+919953864565" style={{ color: 'inherit', textDecoration: 'none', letterSpacing: '0.05em' }}>+91 99538 64565</a>
+            <div className="hero-phone">
+              <Phone size={28} aria-hidden="true" style={{ color: 'var(--accent-gold)' }} />
+              <a href="tel:+919953864565" style={{ color: 'var(--white)', textDecoration: 'none', fontSize: '1.75rem', fontWeight: 700, letterSpacing: '0.05em', textShadow: '0 2px 8px rgba(0,0,0,0.5)' }}>+91 99538 64565</a>
             </div>
             <div className="hero-trustline">
               <span>
@@ -146,9 +146,9 @@ export default function Home() {
             <span className="eyebrow">Ready to Get Started?</span>
             <h2>Schedule a confidential consultation with our team</h2>
           </div>
-          <Link className="button" href="/contact" data-consultation-trigger>
+          <button className="button" data-consultation-trigger>
             <Phone size={18} aria-hidden="true" /> Book Consultation
-          </Link>
+          </button>
         </section>
       </ScrollReveal>
 

@@ -17,12 +17,26 @@ export default function TeamPage() {
   return (
     <>
       <section className="page-hero">
-        <span className="eyebrow">Our People</span>
-        <h1>Meet Our Team</h1>
-        <p>
-          A team of qualified professionals committed to delivering excellence across audit,
-          taxation, compliance, and advisory.
-        </p>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '48px', alignItems: 'center', justifyContent: 'space-between', maxWidth: 'var(--container-max)', margin: '0 auto', position: 'relative', zIndex: 2 }}>
+          <div style={{ flex: '1 1 400px' }}>
+            <span className="eyebrow">Our People</span>
+            <h1 style={{ margin: '16px 0' }}>Meet Our Team</h1>
+            <p>
+              A team of qualified professionals committed to delivering excellence across audit,
+              taxation, compliance, and advisory.
+            </p>
+          </div>
+          <div style={{ flex: '1 1 400px', display: 'flex', justifyContent: 'center' }}>
+             <Image 
+              src="/team.jpeg" 
+              alt="Rohit Aggarwal & Company Team" 
+              width={600} 
+              height={360} 
+              style={{ borderRadius: '16px', objectFit: 'cover', boxShadow: '0 20px 40px rgba(0,0,0,0.4)', border: '1px solid rgba(255,255,255,0.1)', maxWidth: '100%', height: 'auto' }} 
+              priority
+            />
+          </div>
+        </div>
       </section>
 
       <Section eyebrow="Leadership" title="Managing Partner">

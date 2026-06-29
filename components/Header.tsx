@@ -25,6 +25,7 @@ const nav = [
   { label: "Industries", href: "/industries" },
   { label: "International", href: "/international" },
   { label: "Team", href: "/team" },
+  { label: "Careers", href: "/career" },
   { label: "Contact", href: "/contact" },
 ];
 

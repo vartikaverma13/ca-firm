@@ -51,7 +51,7 @@
   --font-sans:          'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 
   /* ── Spacing ── */
-  --section-py:         clamp(80px, 10vw, 120px);
+  --section-py:         clamp(18px, 6vw, 60px);
   --section-px:         clamp(24px, 5vw, 80px);
   --container-max:      1280px;
 
@@ -513,10 +513,37 @@ p {
   justify-content: center;
   min-height: 100vh;
   padding: 120px var(--section-px) 100px;
-  background: var(--primary-dark);
+  background-color: var(--primary-dark);
+  background-image: 
+    linear-gradient(to bottom, rgba(16, 25, 45, 0.85), rgba(16, 25, 45, 0.95)),
+    url("/hero-bg.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: var(--white);
   overflow: hidden;
   text-align: center;
+}
+
+.hero-phone {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin: 32px auto 0;
+  padding: 12px 28px;
+  background: rgba(16, 25, 45, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 165, 77, 0.3);
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.hero-phone:hover {
+  background: rgba(16, 25, 45, 0.85);
+  border-color: rgba(200, 165, 77, 0.6);
+  transform: translateY(-2px);
 }
 
 /* Decorative radial gradients */
@@ -542,13 +569,9 @@ p {
   background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
 }
 
-/* Decorative dot grid pattern */
+/* Decorative dot grid pattern (hidden when using photo background) */
 .hero-bg-pattern {
-  position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(200, 165, 77, 0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
-  pointer-events: none;
+  display: none;
 }
 
 .hero-content {
@@ -578,6 +601,7 @@ p {
 
 .hero .eyebrow {
   color: var(--accent-gold);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .hero h1 {
@@ -589,6 +613,7 @@ p {
   line-height: 1.08;
   letter-spacing: -0.02em;
   color: var(--white);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 1px 2px rgba(0, 0, 0, 0.4);
 }
 
 .hero-subtitle {
@@ -597,7 +622,8 @@ p {
   font-size: clamp(16px, 1.8vw, 19px);
   font-weight: 400;
   line-height: 1.7;
-  color: var(--text-secondary);
+  color: var(--text-light);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
 }
 
 .hero-actions {
@@ -624,8 +650,9 @@ p {
   align-items: center;
   gap: 8px;
   font-size: 13px;
-  font-weight: 500;
+  font-weight: 400;
   color: var(--text-muted);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hero-trustline svg {
@@ -672,7 +699,7 @@ p {
 
 .page-hero {
   position: relative;
-  padding: 100px var(--section-px) 80px;
+  padding: 70px var(--section-px) 80px;
   background: var(--primary-dark);
   color: var(--white);
   overflow: hidden;
@@ -1632,7 +1659,7 @@ select {
   display: grid;
   grid-template-columns: 2fr 1fr 1.3fr 1.6fr;
   gap: 40px;
-  padding: 64px var(--section-px) 56px;
+  padding: 40px var(--section-px) 32px;
   background: var(--primary-dark);
   color: var(--text-primary);
   border-top: 1px solid var(--border-dark);
@@ -1711,7 +1738,7 @@ select {
 
 .footer-bottom {
   grid-column: 1 / -1;
-  padding-top: 32px;
+  padding-top: 20px;
   border-top: 1px solid var(--border-dark);
   display: flex;
   justify-content: space-between;
@@ -2505,7 +2532,7 @@ select {
   .footer {
     grid-template-columns: 1fr;
     gap: 32px;
-    padding: 48px var(--section-px);
+    padding: 32px var(--section-px) 24px;
   }
 
   .footer-bottom {

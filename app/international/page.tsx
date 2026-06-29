@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, CalendarCheck } from "lucide-react";
 import { CountryBadges, InternationalServiceGrid } from "@/components/Cards";
 import { Section } from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -57,9 +57,9 @@ export default function InternationalPage() {
           <span className="eyebrow">Global Advisory</span>
           <h2>Need cross-border tax or compliance support?</h2>
         </div>
-        <Link className="button" href="/contact" data-consultation-trigger>
-          <Phone size={17} aria-hidden="true" /> Book International Consultation
-        </Link>
+        <button className="button" data-consultation-trigger>
+          <CalendarCheck size={18} aria-hidden="true" /> Book a Consultation
+        </button>
       </section>
     </>
   );

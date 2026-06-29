@@ -133,19 +133,32 @@ export function FeatureGrid({
 export function IndustryGrid({
   industries,
 }: {
-  industries: { name: string; description: string; icon?: string }[];
+  industries: { name: string; description: string; icon?: string; image?: string }[];
 }) {
   return (
     <div className="grid">
       {industries.map((industry) => {
         const Icon = industryIcons[industry.name] || Globe;
         return (
-          <article className="card industry-card" key={industry.name}>
-            <div className="icon-badge">
-              <Icon size={22} aria-hidden="true" />
+          <article className="card industry-card" key={industry.name} style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+            {industry.image && (
+              <div style={{ width: '100%', height: '180px', position: 'relative' }}>
+                <img src={industry.image} alt={industry.name} style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(16, 25, 45, 1) 0%, rgba(16, 25, 45, 0.4) 50%, transparent 100%)' }} />
+                <div className="icon-badge" style={{ position: 'absolute', bottom: '16px', left: '24px', margin: 0, border: '1px solid rgba(200, 165, 77, 0.3)', background: 'rgba(16, 25, 45, 0.6)', backdropFilter: 'blur(8px)', color: 'var(--accent-gold)' }}>
+                  <Icon size={20} aria-hidden="true" />
+                </div>
+              </div>
+            )}
+            <div style={{ padding: industry.image ? '20px 24px 32px' : '32px' }}>
+              {!industry.image && (
+                <div className="icon-badge">
+                  <Icon size={22} aria-hidden="true" />
+                </div>
+              )}
+              <h3 style={{ marginTop: industry.image ? '4px' : undefined, fontSize: '20px' }}>{industry.name}</h3>
+              <p style={{ margin: 0 }}>{industry.description}</p>
             </div>
-            <h3>{industry.name}</h3>
-            <p>{industry.description}</p>
           </article>
         );
       })}

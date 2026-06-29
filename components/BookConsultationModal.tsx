@@ -70,9 +70,29 @@ export function BookConsultationModal() {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") closeModal();
     };
+
+    const handleGlobalClick = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      const trigger = target.closest("[data-consultation-trigger]");
+      if (trigger) {
+        e.preventDefault();
+        setConsultationOpen(true);
+      }
+    };
+
     document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
-  }, [closeModal]);
+    document.addEventListener("click", handleGlobalClick);
+    
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.removeEventListener("keydown", handleEscape);
+      document.removeEventListener("click", handleGlobalClick);
+      document.body.style.overflow = "unset";
+    };
+  }, [closeModal, setConsultationOpen, isOpen]);
 
   if (!isOpen) return null;
 

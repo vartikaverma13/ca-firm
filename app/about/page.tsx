@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Link from "next/link";
-import { ArrowRight, Target, BriefcaseBusiness, Award, Phone } from "lucide-react";
+import { ArrowRight, Target, BriefcaseBusiness, Award, Phone, CalendarCheck } from "lucide-react";
 import { FeatureGrid, ValueGrid } from "@/components/Cards";
 import { Section } from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
@@ -105,9 +105,9 @@ export default function AboutPage() {
           <span className="eyebrow">Let&apos;s Work Together</span>
           <h2>Ready to experience advisory that makes a difference?</h2>
         </div>
-        <Link className="button" href="/contact" data-consultation-trigger>
-          <Phone size={17} aria-hidden="true" /> Book Consultation
-        </Link>
+        <button className="button" data-consultation-trigger>
+          <CalendarCheck size={18} aria-hidden="true" /> Book a Consultation
+        </button>
       </section>
     </>
   );

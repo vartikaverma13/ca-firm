@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, CalendarCheck } from "lucide-react";
 import { Section } from "@/components/Section";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { leader } from "@/lib/data";
@@ -88,9 +88,9 @@ export default function LeadershipPage() {
           <span className="eyebrow">Connect</span>
           <h2>Schedule a consultation with our Managing Partner</h2>
         </div>
-        <Link className="button" href="/contact" data-consultation-trigger>
-          <Phone size={17} aria-hidden="true" /> Book Consultation
-        </Link>
+        <button className="button" data-consultation-trigger>
+          <CalendarCheck size={18} aria-hidden="true" /> Book a Consultation
+        </button>
       </section>
     </>
   );
