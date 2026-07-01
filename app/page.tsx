@@ -139,18 +139,6 @@ export default function Home() {
         </section>
       </ScrollReveal>
 
-      {/* ── CTA BANNER ── */}
-      <ScrollReveal>
-        <section className="cta-banner">
-          <div>
-            <span className="eyebrow">Ready to Get Started?</span>
-            <h2>Schedule a confidential consultation with our team</h2>
-          </div>
-          <button className="button" data-consultation-trigger>
-            <Phone size={18} aria-hidden="true" /> Book Consultation
-          </button>
-        </section>
-      </ScrollReveal>
 
       {/* ── FAQ ── */}
       <Section eyebrow="FAQ" title="Frequently Asked Questions" centered>

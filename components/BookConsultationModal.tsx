@@ -50,14 +50,30 @@ export function BookConsultationModal() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    setTimeout(() => {
-      setIsSuccess(false);
-      setFormData({ fullName: "", email: "", phone: "", service: "" });
-      setConsultationOpen(false);
-    }, 2000);
+    try {
+      const response = await fetch("/api/consultation", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: formData.fullName,
+          email: formData.email,
+          phone: formData.phone,
+          service: formData.service,
+        }),
+      });
+      if (!response.ok) throw new Error("Failed to submit");
+      setIsSuccess(true);
+      setTimeout(() => {
+        setIsSuccess(false);
+        setFormData({ fullName: "", email: "", phone: "", service: "" });
+        setConsultationOpen(false);
+      }, 2000);
+    } catch (err) {
+      console.error(err);
+      alert("Something went wrong. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const closeModal = useCallback(() => {

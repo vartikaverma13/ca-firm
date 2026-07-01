@@ -14,7 +14,7 @@ export async function POST(request: Request) {
       );
     }
 
-    const recipientEmail = "audit@carohitaggarwal.org.in";
+    const recipientEmail = "teenaupasana16@gmail.com";
 
     // Read SMTP config from environment variables
     const host = process.env.SMTP_HOST;

@@ -70,16 +70,13 @@ export function ServiceGrid({
       {services.map((service) => {
         const Icon = serviceIcons[service.title] || ShieldCheck;
         return (
-          <article className="card service-card" key={service.slug}>
+          <Link href={`/services/${service.slug}`} className="card service-card" key={service.slug} style={{ textDecoration: 'none', display: 'block' }}>
             <div className="icon-badge">
               <Icon size={22} aria-hidden="true" />
             </div>
             <h3>{service.title}</h3>
-            <p>{service.intro}</p>
-            <Link className="text-link" href={`/services/${service.slug}`}>
-              Learn More <ArrowUpRight size={16} aria-hidden="true" />
-            </Link>
-          </article>
+            <p style={{ margin: 0 }}>{service.intro}</p>
+          </Link>
         );
       })}
     </div>
